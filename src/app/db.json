@@ -1,0 +1,41 @@
+{
+  "productList": [
+    {
+      "productName": "Name Test",
+      "productCategory": "Electronic",
+      "productDate": "2022-04-14T22:00:00.000Z",
+      "productSeason": "Second Hand",
+      "productPrice": 250,
+      "productComment": "testing comments",
+      "id": 1
+    },
+    {
+      "productName": "iPhone 11 Pro Max",
+      "productCategory": "Electronic",
+      "productDate": "2022-04-14T22:00:00.000Z",
+      "productSeason": "Brand New",
+      "productPrice": 18500,
+      "productComment": "Commenting",
+      "id": 2
+    },
+    {
+      "productName": "iPhone 13 Pro Max",
+      "productCategory": "Electronic",
+      "productDate": "2022-04-15T22:00:00.000Z",
+      "productSeason": "Second Hand",
+      "productPrice": 25000,
+      "productComment": "New iPhone incoming...",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

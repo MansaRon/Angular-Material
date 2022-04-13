@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   products: any = [];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['productName', 'productCategory', 'productSeason', 'productDate', 'productPrice', 'productComment'];
+  displayedColumns: string[] = ['productName', 'productCategory', 'productSeason', 'productDate', 'productPrice', 'productComment', 'action'];
   //dataSource: MatTableDataSource<UserData>;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private api: ApiService) {
     //this.dataSource = new MatTableDataSource;
-   }
+  }
 
   public ngOnInit(): void {
     this.getAllProducts();
@@ -56,5 +56,24 @@ export class ProductsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  public editProduct(row: any) {
+    this.dialog.open(DialogComponent, {
+      width: '30%',
+      data: row
+    })
+  }
+
+  // deleteProduct(row: any): void {
+  //   this.api.deleteProduct(this.editData.id, this.productForm.value).subscribe({
+  //     next:(remove) => {
+  //       console.log(remove);
+  //       alert('Product Deleted');
+  //       this.dialogRef.close();
+  //     }, error:() => {
+  //       alert('Error occured');
+  //     }, complete:() => {}
+  //   })
+  // }
 
 }

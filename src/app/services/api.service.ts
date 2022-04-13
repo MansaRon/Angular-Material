@@ -16,7 +16,11 @@ export class ApiService {
     return this.httpClient.get("http://localhost:3000/productList/")
   }
 
-  editProduct() {}
+  editProduct(productId: string, productObj: any) {
+    return this.httpClient.put("http://localhost:3000/productList/" + productId + "/", productObj);
+  }
 
-  deleteProduct() {}
+  deleteProduct(productId: string, productObj: any) {
+    return this.httpClient.delete("http://localhost:3000/productList/" + productId + "/");
+  }
 }

@@ -41,32 +41,62 @@ export class DialogComponent implements OnInit {
 
   onSubmitProduct(): void {
     if (this.actionBtn == 'Save') {
-      if (this.productForm.valid) {
-        this.api.saveProduct(this.productForm.value).subscribe({
-          next:(res) => {
-            alert('Product added');
-            this.productForm.reset();
-            this.dialogRef.close();
-          }, error:() => {
-            alert('Error adding');
-          }, complete:() => {}
-        });
-      }
+      this.saveProduct();
     }
     else {
-      if (this.productForm.valid) {
-        this.api.editProduct(this.editData.id, this.productForm.value).subscribe({
-          next:(data) => {
-            console.log(data);
-            alert('Product updated');
-            this.productForm.reset();
-            this.dialogRef.close();
-          }, error:() => {
-            alert('Error occured');
-          }, complete:() => {}
-        })
-      }
+      this.editProduct();
     }
+  }
+
+  public saveProduct(): any {
+    if (this.productForm.valid) {
+      this.api.saveProduct(this.productForm.value).subscribe({
+        next:(res) => {
+          alert('Product added');
+          this.productForm.reset();
+          this.dialogRef.close();
+          this.getAllProducts();
+        }, error:() => {
+          alert('Error adding');
+        }, complete:() => {}
+      });
+    }
+  }
+
+  public editProduct(): any {
+    if (this.productForm.valid) {
+      return this.api.editProduct(this.editData.id, this.productForm.value).subscribe({
+        next:(data) => {
+          console.log(data);
+          alert('Product updated');
+          this.productForm.reset();
+          this.dialogRef.close();
+          this.getAllProducts();
+        }, error:() => {
+          alert('Error occured');
+        }, complete:() => {}
+      })
+    }
+  }
+  
+  public getAllProducts() {
+    return this.api.getProducts().subscribe({
+      next:(data) => {},
+      error:(error) => {console.log(error)}, 
+      complete:() => {console.log('Data loaded...')}
+    })
+  }
+
+  public deleteProduct(): void {
+    this.api.deleteProduct(this.editData.id).subscribe({
+      next:(remove) => {
+        console.log(remove);
+        alert('Product Deleted');
+        this.dialogRef.close();
+      }, error:() => {
+        alert('Error occured');
+      }, complete:() => {}
+    })
   }
 
 }

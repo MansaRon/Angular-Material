@@ -20,7 +20,7 @@ export class ApiService {
     return this.httpClient.put("http://localhost:3000/productList/" + productId + "/", productObj);
   }
 
-  deleteProduct(productId: string, productObj: any) {
+  deleteProduct(productId: string) {
     return this.httpClient.delete("http://localhost:3000/productList/" + productId + "/");
   }
 }

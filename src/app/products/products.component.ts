@@ -32,7 +32,9 @@ export class ProductsComponent implements OnInit {
   public openDialog() {
     this.dialog.open(DialogComponent, {
       width: '30%'
-    });
+    }).afterClosed().subscribe(data => {
+      this.getAllProducts();
+    })
   }
 
   public getAllProducts() {
@@ -61,6 +63,8 @@ export class ProductsComponent implements OnInit {
     this.dialog.open(DialogComponent, {
       width: '30%',
       data: row
+    }).afterClosed().subscribe(data => {
+      this.getAllProducts();
     })
   }
 

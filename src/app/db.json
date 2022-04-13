@@ -1,15 +1,6 @@
 {
   "productList": [
     {
-      "productName": "Apple",
-      "productCategory": "Fruits",
-      "productDate": "2022-04-16T22:00:00.000Z",
-      "productSeason": "Brand New",
-      "productPrice": 9,
-      "productComment": "Apple",
-      "id": 1
-    },
-    {
       "productName": "iPhone 11 Pro Max",
       "productCategory": "Electronic",
       "productDate": "2022-04-14T22:00:00.000Z",
@@ -35,15 +26,6 @@
       "productPrice": 15000,
       "productComment": "Samsung Note 20",
       "id": 4
-    },
-    {
-      "productName": "Huawei P40",
-      "productCategory": "Electronic",
-      "productDate": "2022-04-17T22:00:00.000Z",
-      "productSeason": "Brand New",
-      "productPrice": 19000,
-      "productComment": "New Phone",
-      "id": 5
     }
   ],
   "comments": [

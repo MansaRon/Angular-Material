@@ -26,7 +26,7 @@ export class DialogComponent implements OnInit {
       productComment: ['', Validators.required]
     })
 
-    console.log(this.editData);
+    //console.log(this.editData);
     // Checks data from the modal and appends the data if its available 
     if (this.editData) {
       this.actionBtn = 'Update';
@@ -67,7 +67,7 @@ export class DialogComponent implements OnInit {
     if (this.productForm.valid) {
       return this.api.editProduct(this.editData.id, this.productForm.value).subscribe({
         next:(data) => {
-          console.log(data);
+          //console.log(data);
           alert('Product updated');
           this.productForm.reset();
           this.dialogRef.close();
@@ -90,7 +90,7 @@ export class DialogComponent implements OnInit {
   public deleteProduct(): void {
     this.api.deleteProduct(this.editData.id).subscribe({
       next:(remove) => {
-        console.log(remove);
+        //console.log(remove);
         alert('Product Deleted');
         this.dialogRef.close();
       }, error:() => {

@@ -17,13 +17,16 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent],
+  declarations: [AppComponent, DialogComponent, ProductsComponent],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatSelectModule, MatInputModule, MatDatepickerModule, MatRadioModule,
     MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatNativeDateModule,
-    ReactiveFormsModule, HttpClientModule
+    ReactiveFormsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ApiService } from '../services/api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-products',
@@ -10,13 +13,23 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private api: ApiService) { }
+  products: any = [];
+  dataSource!: MatTableDataSource<any>;
+  displayedColumns: string[] = ['productName', 'productCategory', 'productSeason', 'productDate', 'productPrice', 'productComment'];
+  //dataSource: MatTableDataSource<UserData>;
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  ngOnInit(): void {
+  constructor(public dialog: MatDialog, private api: ApiService) {
+    //this.dataSource = new MatTableDataSource;
+   }
+
+  public ngOnInit(): void {
     this.getAllProducts();
   }
 
-  openDialog() {
+  public openDialog() {
     this.dialog.open(DialogComponent, {
       width: '30%'
     });
@@ -24,10 +37,24 @@ export class ProductsComponent implements OnInit {
 
   public getAllProducts() {
     return this.api.getProducts().subscribe({
-      next:(res) => {console.log(res)},
+      next:(data) => {
+        this.products = data;
+        this.dataSource = new MatTableDataSource(this.products);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
       error:(error) => {console.log(error)}, 
       complete:() => {console.log('Data loaded...')}
     })
+  }
+
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }

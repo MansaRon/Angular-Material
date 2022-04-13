@@ -14,6 +14,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table'; 
+import {MatPaginatorModule} from '@angular/material/paginator'; 
+// import {CdkTableModule} from '@angular/cdk/table'; 
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule, BrowserAnimationsModule, MatSelectModule, MatInputModule, MatDatepickerModule, MatRadioModule,
     MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatNativeDateModule,
-    ReactiveFormsModule, HttpClientModule, AppRoutingModule
+    ReactiveFormsModule, HttpClientModule, AppRoutingModule, MatTableModule, MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

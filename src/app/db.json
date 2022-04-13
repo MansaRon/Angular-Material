@@ -26,6 +26,15 @@
       "productPrice": 25000,
       "productComment": "New iPhone incoming...",
       "id": 3
+    },
+    {
+      "productName": "Samsung",
+      "productCategory": "Electronic",
+      "productDate": "2022-04-17T22:00:00.000Z",
+      "productSeason": "Refurbished",
+      "productPrice": 15000,
+      "productComment": "Samsung Note 20",
+      "id": 4
     }
   ],
   "comments": [
